@@ -1,0 +1,37 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build dockerfile",
+            "type": "shell",
+            "command": "docker build --no-cache --tag \"yocto-image:latest\" .",
+            "problemMatcher": []
+        },
+        {
+            "label": "run image",
+            "type": "shell",
+            "command": "docker run -d -p 12345:22 --security-opt seccomp:unconfigured -v $PWD:/source --name gdb-cpp-image gdb-cpp-image",
+            "problemMatcher": []
+        },
+        {
+            "label": "build in container",
+            "type": "shell",
+            "command": "ssh",
+            "args": [
+                "root@localhost",
+                "-p",
+                "34568",
+                "/source/build.sh"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
