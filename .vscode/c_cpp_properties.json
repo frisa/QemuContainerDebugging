@@ -1,0 +1,28 @@
+{
+    "configurations": [
+            {
+                    "name": "Linux",
+                    "intelliSenseMode": "clang-x64",
+                    "includePath": [
+                            "${workspaceFolder}",
+                            "${workspaceFolder}/include",
+                            "${workspaceFolder}/include/generated",
+                            "${workspaceFolder}/arch/x86/include",
+                            "${workspaceFolder}/arch/x86/include/generated"
+                    ],
+                    "defines": [
+                            "__KERNEL__"
+                    ],
+                    "compilerPath": "/usr/bin/gcc",
+                    "cStandard": "gnu99",
+                    "browse": {
+                            "path": [
+                                    "${workspaceFolder}/**"
+                            ],
+                            "limitSymbolsToIncludedHeaders": true,
+                            "databaseFilename": ""
+                    }
+            }
+    ],
+    "version": 4
+}

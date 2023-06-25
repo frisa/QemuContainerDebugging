@@ -4,15 +4,20 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "run the docker for YOCTO build",
+            "type": "shell",
+            "command": "docker run --volume=${PWD}/yocto:/home/build/yocto gmacario/build-yocto echo hi",
+        },
+        {
             "label": "build dockerfile",
             "type": "shell",
-            "command": "docker build --no-cache --tag \"yocto-image:latest\" .",
+            "command": "docker build --tag \"yocto-image:latest\" .",
             "problemMatcher": []
         },
         {
             "label": "run image",
             "type": "shell",
-            "command": "docker run -d -p 12345:22 --security-opt seccomp:unconfigured -v $PWD:/source --name gdb-cpp-image gdb-cpp-image",
+            "command": "docker run -d --name gdb-cpp-image yocto-image sleep infinity",
             "problemMatcher": []
         },
         {
