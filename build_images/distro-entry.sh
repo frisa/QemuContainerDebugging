@@ -1,8 +1,4 @@
 #!/bin/bash
-# Copyright (C) 2019 Intel Corporation
-# Copyright (C) 2022 Konsulko Group
-#
-# SPDX-License-Identifier: GPL-2.0-only
 
 RELEASE="4.1"
 
