@@ -1,0 +1,15 @@
+FROM ubuntu:18.04
+
+USER root
+
+RUN apt-get -y update
+RUN apt-get -y install samba
+RUN apt-get clean
+RUN groupadd -g 1000 smbuser
+RUN useradd -m -u 1000 -g 1000 smbuser
+
+COPY samba.sh /usr/bin/
+COPY smb.conf /etc/samba/
+RUN chmod +x /usr/bin/samba.sh
+
+CMD ["samba.sh"]
